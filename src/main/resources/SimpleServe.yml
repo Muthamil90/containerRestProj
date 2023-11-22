@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: simpleserver
+    labels:
+        app: thamil
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: java-simple-server
+    template:
+        metadata:
+            labels:
+                app: java-simple-server
+        spec:
+            containers:
+                - name: java-simple-server
+                  image: muthamil90/java_simple_server
+                  ports:
+                    - containerPort: 8090
